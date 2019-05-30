@@ -1,28 +1,32 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { User } from './core/user';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'pm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
-  user: User;
-  userSubscription: Subscription;
+export class AppComponent implements OnInit, OnDestroy {
+  user$: Observable<User>;
+  subscriptions: Subscription[] = [];
 
   constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.user$ = this.authService.user;
+
+    this.subscriptions.push(this.authService.findMe().subscribe());
+  }
 
   logout() {
     this.authService.logout();
     this.router.navigate(['/']);
   }
 
-  ngOnDestroy(): void {
-    if (this.userSubscription) {
-      this.userSubscription.unsubscribe();
-    }
+  ngOnDestroy() {
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 }
