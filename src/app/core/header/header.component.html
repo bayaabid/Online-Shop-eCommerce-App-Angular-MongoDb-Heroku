@@ -11,7 +11,7 @@
           <mat-icon>account_circle</mat-icon>{{ user.fullname }}
         </a>
         <mat-menu #menu="matMenu">
-          <button (click)="logout()" mat-menu-item>logout</button>
+          <button (click)="logoutEvent.emit()" mat-menu-item>logout</button>
         </mat-menu>
       </div>
     </mat-toolbar-row>

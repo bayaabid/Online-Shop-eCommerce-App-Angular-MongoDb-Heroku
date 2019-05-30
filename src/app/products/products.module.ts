@@ -4,12 +4,17 @@ import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products/products.component';
 import { ProductDataService } from './product-data.service';
-import { PmMaterialModule } from '../material-module';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [ProductsComponent],
-  imports: [CommonModule, ProductsRoutingModule, HttpClientModule, PmMaterialModule],
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    HttpClientModule,
+    SharedModule
+  ],
   providers: [ProductDataService]
 })
 export class ProductsModule {}

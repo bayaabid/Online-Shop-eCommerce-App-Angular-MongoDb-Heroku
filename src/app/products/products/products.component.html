@@ -1,9 +1,10 @@
-<mat-grid-list cols="5" rowHeight="600px">
+<mat-grid-list cols="4" rowHeight="700px" [gutterSize]="'10px'">
   <mat-grid-tile *ngFor="let product of (products | async)">
     <mat-card>
       <img mat-card-image src="{{ product.imgUrl }}" alt="{{ product.name }}" />
       <mat-card-content>
-        <p>{{ product.name }} : $ {{ product.price }}</p>
+        <h2 class="mat-title">{{ product.name }}</h2>
+        <h2 class="mat-display-2">$ {{ product.price }}</h2>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button>LIKE</button>
