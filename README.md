@@ -1,6 +1,6 @@
 # PRODUCT MART _an angular app on MEAN stack_
 
-![Click here for Video Tutorial !](https://www.youtube.com/playlist?list=PLZed_adPqIJrl9pwlERGhU-RCNOtKqvyD)
+[Click here for Video Tutorial !](https://www.youtube.com/playlist?list=PLZed_adPqIJrl9pwlERGhU-RCNOtKqvyD)
 
 Welcome to `product mart` this is an Angular App where we are using Angular Material to develop pages and we are making this app from the scratch to learn angular.
 
