@@ -1,4 +1,4 @@
-# PRODUCT MART _an angular app on MEAN stack_
+# Download Online Store eCommerce App in Angular + MongoDb + Heroku with complete source code
 
 [Click here for Video Tutorial !](https://www.youtube.com/playlist?list=PLZed_adPqIJrl9pwlERGhU-RCNOtKqvyD)
 
