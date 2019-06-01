@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: './products/products.module#ProductsModule'
   },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: './auth/auth.module#AuthModule'
   }
 ];
