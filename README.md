@@ -2,10 +2,13 @@
 
 [Click here for Video Tutorial !](https://www.youtube.com/playlist?list=PLZed_adPqIJrl9pwlERGhU-RCNOtKqvyD)
 
+[Click here to Read Step by Step Instructions](https://gist.github.com/rupeshtiwari/533ae85655816b58386f7bd1e94df8a9)
+
 Welcome to `product mart` this is an Angular App where we are using Angular Material to develop pages and we are making this app from the scratch to learn angular.
 
 This course is introduction to `MEAN` stack step by step.
 The `MEAN` stack uses `Mongo`, `Express`, `Angular` and `Node` for simple and scalable fullstack js applications
+
 - [x] M = MONGO DB
 - [x] E = EXPRESS
 - [x] A = ANGULAR
@@ -17,29 +20,24 @@ Below are our learning checklist. We will cover one by one each topic while maki
 Please follow all of my teaching videos here in YouTube.
 
 - [x] ~~_Environment ( node, npm , expressjs, vscode )_~~ [2019-04-06]
-- [x] ~~_Angular CLI_~~ [2019-04-06]****
-- [X] ~~*Use Case (Display User List)*~~ [2019-04-12]
-- [X] ~~*Integrate with Angular Material*~~ [2019-04-12]
-- [X] ~~*Use Components from Angular Material*~~ [2019-04-12]
-- [X] ~~*Host application in local server ( express.js)*~~ [2019-04-12]
-- [X] ~~*Serve the data from local server*~~ [2019-04-12]
+- [x] ~~_Angular CLI_~~ [2019-04-06]\*\*\*\*
+- [x] ~~_Use Case (Display User List)_~~ [2019-04-12]
+- [x] ~~_Integrate with Angular Material_~~ [2019-04-12]
+- [x] ~~_Use Components from Angular Material_~~ [2019-04-12]
+- [x] ~~_Host application in local server ( express.js)_~~ [2019-04-12]
+- [x] ~~_Serve the data from local server_~~ [2019-04-12]
 - [ ] adding login/logout feature
 - [ ] adding register feature
 - [ ] creating restful api server
-- [ ] consuming restful api in Auth service 
+- [ ] consuming restful api in Auth service
 - [ ] installing mongo db
 - [ ] Configuring mongoose in Angular App
 - [ ] Integrating Restful API with mongo db
-- [ ] Deploy prod code to Cloud Platform 
-  - [ ] Heroku 
+- [ ] Deploy prod code to Cloud Platform
+  - [ ] Heroku
 - [ ] Create ToolBar Component
 - [ ] Organize Project (shared and core module, feature module)
 
- 
-
-
-
-  
 ## Learning Materials
 
 - [x] Youtube Link for Introduction to `MEAN` stack and Learning Angular Step by Step.
@@ -61,8 +59,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-
 ## Getting Started.
-  git clone 
-  npm i 
-  cp .env.sample .env
+
+git clone
+npm i
+cp .env.sample .env
