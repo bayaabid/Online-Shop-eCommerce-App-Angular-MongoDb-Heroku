@@ -4,7 +4,7 @@ import { switchMap, catchError } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 
 import { User } from "../core/user";
-import { TokenStorageService } from "../token-storage.service";
+import { TokenStorageService } from "../core/token-storage.service";
 
 interface UserDto {
   user: User;
