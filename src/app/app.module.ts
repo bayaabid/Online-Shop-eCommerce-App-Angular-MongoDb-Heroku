@@ -17,7 +17,6 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-
     HttpClientModule,
     CoreModule
   ],
