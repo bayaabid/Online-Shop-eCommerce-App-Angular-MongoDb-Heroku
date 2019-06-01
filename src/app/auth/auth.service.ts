@@ -3,8 +3,8 @@ import { of, Subject, throwError, EMPTY } from "rxjs";
 import { switchMap, catchError } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 
-import { User } from "./core/user";
-import { TokenStorageService } from "./token-storage.service";
+import { User } from "../core/user";
+import { TokenStorageService } from "../token-storage.service";
 
 interface UserDto {
   user: User;
