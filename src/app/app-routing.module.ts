@@ -1,7 +1,6 @@
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from '@core/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -9,11 +8,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'products'
   },
-  {
-    path: 'home',
-    pathMatch: 'full',
-    component: HomeComponent
-  },
+
   {
     path: 'products',
     loadChildren: './products/products.module#ProductsModule'
@@ -21,6 +16,11 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: 'cart',
+    loadChildren: './cart/cart.module#CartModule',
+    canActivate: [AuthGuardService]
   }
 ];
 

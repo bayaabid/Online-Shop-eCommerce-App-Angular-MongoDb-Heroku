@@ -1,0 +1,39 @@
+<mat-card class="sc-checkout">
+  <mat-card-content>
+
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+
+        <span> Items ({{cartItemsCount|async}})
+        </span>
+        <span class="spacer"></span>
+        <span> {{cartSubTotal|async | currency}}
+        </span>
+
+
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <span> Shipping to 08902
+        </span>
+        <span class="spacer"></span>
+        <span> {{shippingCost|async | currency}}
+        </span></mat-list-item>
+      <mat-list-item role="listitem">
+        <span> Estimated tax
+        </span>
+        <span class="spacer"></span>
+        <span>{{estimattedTax|async | currency}}
+        </span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <span class="mat-title"> Order Total
+        </span>
+        <span class="spacer"></span>
+        <span class="mat-title">{{orderTotal|async | currency}}
+        </span></mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-footer>
+
+  </mat-card-footer>
+</mat-card>

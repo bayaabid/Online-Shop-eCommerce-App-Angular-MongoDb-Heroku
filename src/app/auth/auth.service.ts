@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { of, Subject, throwError, EMPTY } from "rxjs";
-import { switchMap, catchError } from "rxjs/operators";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { of, Subject, throwError, EMPTY, BehaviorSubject } from 'rxjs';
+import { switchMap, catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
-import { User } from "../core/user";
-import { TokenStorageService } from "../core/token-storage.service";
+import { User } from '../core/user';
+import { TokenStorageService } from '../core/token-storage.service';
 
 interface UserDto {
   user: User;
@@ -12,20 +12,24 @@ interface UserDto {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthService {
-  private user$ = new Subject<User>();
-  private apiUrl = "/api/auth/";
+  private user$ = new BehaviorSubject<User>(null);
+  private apiUrl = '/api/auth/';
 
   constructor(
     private httpClient: HttpClient,
     private tokenStorage: TokenStorageService
   ) {}
 
+  get isLoggedIn() {
+    return this.user$.value != null;
+  }
+
   login(email: string, password: string) {
     const loginCredentials = { email, password };
-    console.log("login credentials", loginCredentials);
+    console.log('login credentials', loginCredentials);
 
     return this.httpClient
       .post<UserDto>(`${this.apiUrl}login`, loginCredentials)
@@ -54,7 +58,7 @@ export class AuthService {
 
     this.tokenStorage.removeToken();
     this.setUser(null);
-    console.log("user did logout successfull");
+    console.log('user did logout successfull');
   }
 
   get user() {

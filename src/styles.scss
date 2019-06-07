@@ -14,8 +14,13 @@ body {
   pm-root * {
     font-family: 'Exo', sans-serif;
   }
+  overflow: hidden;
 }
 
 .left-spacer {
   margin-left: 0.2em;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

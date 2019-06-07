@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
+
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
- 
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHeaderInterceptorService } from './interceptors/auth-header-interceptor.service';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [],
   imports: [CommonModule, SharedModule, RouterModule],
-  exports: [HeaderComponent],
+  exports: [],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

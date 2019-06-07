@@ -1,0 +1,25 @@
+a {
+  margin: 2px;
+}
+
+.logo {
+  background-image: url('../../assets/logo.png');
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-icon {
+  margin: 0px;
+}
+.pm-title {
+ 
+}

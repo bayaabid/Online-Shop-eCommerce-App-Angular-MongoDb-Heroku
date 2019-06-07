@@ -1,0 +1,15 @@
+<div mat-dialog-container>
+  <h1 mat-dialog-title>{{cartItem.quantity}} item/s added to cart</h1>
+  <div mat-dialog-content>
+    <img mat-card-image src="{{ cartItem.imgUrl }}" alt="{{ cartItem.name }}" class="product-listing-image" /> <span
+      class="mat-caption">
+      {{cartItem.name}} {{cartItem.itemTotal |currency}}
+    </span>
+
+
+    <button mat-raised-button color="primary" (click)="continueShopping()">Continue Shopping</button>
+
+    <button mat-button color="warn" (click)="goToCart()">Got to Cart</button>
+
+  </div>
+</div>

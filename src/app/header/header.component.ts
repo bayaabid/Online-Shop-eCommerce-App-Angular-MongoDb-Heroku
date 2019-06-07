@@ -1,13 +1,10 @@
 import {
   Component,
-  OnInit,
-  OnDestroy,
   Output,
   EventEmitter,
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/core/user';
 
 @Component({

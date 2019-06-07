@@ -1,22 +1,18 @@
-.ico-md {
-  font-size: 2.5em;
+.mat-table {
+  width: 100%;
+  box-shadow: none;
+}
+.product-listing-image {
+  height: 20em;
+  width: 15em;
 }
 
-.mar-l-2 {
-  margin-left: 2em;
+@media all and (max-width: 699px) {
+  .product-listing-image {
+    height: 10em;
+    width: 8em;
+  }
+  .mat-table {
+    width: 90%;
+  }
 }
-
-.mar-l {
-  margin-left: 0.3em;
-}
-
-.btn-md {
-  height: 4em;
-}
-
-.btn-md span {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
- 
