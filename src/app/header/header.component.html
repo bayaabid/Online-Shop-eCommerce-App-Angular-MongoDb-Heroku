@@ -12,7 +12,10 @@
       </div>
       <span class="header-spacer"></span>
       <div>
-        <a *ngIf="!user" mat-button routerLink="/auth" routerLinkActive="active-link">Login</a>
+        <a *ngIf="!user" mat-button routerLink="/auth" routerLinkActive="active-link">
+          <mat-icon>person_outliner</mat-icon>
+          Login
+        </a>
 
         <a mat-button *ngIf="user" [matMenuTriggerFor]="menu">
           <mat-icon>account_box</mat-icon>
