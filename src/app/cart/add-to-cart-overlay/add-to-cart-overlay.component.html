@@ -1,15 +1,19 @@
 <div mat-dialog-container>
   <h1 mat-dialog-title>{{cartItem.quantity}} item/s added to cart</h1>
   <div mat-dialog-content>
-    <img mat-card-image src="{{ cartItem.imgUrl }}" alt="{{ cartItem.name }}" class="product-listing-image" /> <span
-      class="mat-caption">
-      {{cartItem.name}} {{cartItem.itemTotal |currency}}
-    </span>
+
+    <div class="pm-dialog-row">
+      <img mat-card-image src="{{ cartItem.imgUrl }}" alt="{{ cartItem.name }}" class="product-listing-image" />
 
 
-    <button mat-raised-button color="primary" (click)="continueShopping()">Continue Shopping</button>
+      <span class="mat-caption">
+        {{cartItem.name}} {{cartItem.itemTotal |currency}}
+      </span>
+    </div>
+    <div class="pm-dialog-row">
+      <button mat-raised-button [tabIndex]="0" color="primary" (click)="continueShopping()">Continue Shopping</button>
 
-    <button mat-button color="warn" (click)="goToCart()">Got to Cart</button>
-
+      <button mat-raised-button color="accent" (click)="goToCart()">Got to Cart</button>
+    </div>
   </div>
 </div>

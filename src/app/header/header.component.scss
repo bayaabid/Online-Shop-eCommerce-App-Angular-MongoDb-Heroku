@@ -1,5 +1,6 @@
 a {
   margin: 2px;
+  cursor: pointer;
 }
 
 .logo {
@@ -17,9 +18,17 @@ a {
   flex: 1 1 auto;
 }
 
-.mat-icon {
-  margin: 0px;
+.user-name {
+  display: inline;
 }
-.pm-title {
- 
+
+@media all and (max-width: 699px) {
+  .user-name {
+    display: none;
+  }
+
+  .logo {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
 }

@@ -6,7 +6,10 @@ $iconWidth: 56px;
   line-height: $iconWidth;
   color: white;
 }
-
+.addcart-btn-text,
+.viewcart-btn-text {
+  display: inline;
+}
 .atc-container {
   width: 50%;
   box-shadow: none;
@@ -23,4 +26,11 @@ $iconWidth: 56px;
 .atc-quantity {
   width: 5em;
   margin-right: 2em;
+}
+
+@media all and (max-width: 699px) {
+  .addcart-btn-text,
+  .viewcart-btn-text {
+    display: none;
+  }
 }

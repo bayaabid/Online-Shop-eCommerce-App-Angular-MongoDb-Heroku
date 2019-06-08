@@ -4,32 +4,18 @@
   </mat-card-header>
   <mat-card-content>
     <form>
-      <table cellspacing="0">
+      <table cellspacing="0" class="full-width">
         <tr>
           <td>
-            <mat-form-field>
-              <input
-                name="email"
-                [(ngModel)]="email"
-                matInput
-                placeholder="Email"
-                required
-                type="email"
-              />
+            <mat-form-field class="full-width">
+              <input name="email" [(ngModel)]="email" matInput placeholder="Email" required type="email" />
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
-            <mat-form-field>
-              <input
-                name="password"
-                [(ngModel)]="password"
-                matInput
-                placeholder="Password"
-                required
-                type="password"
-              />
+            <mat-form-field class="full-width">
+              <input name="password" [(ngModel)]="password" matInput placeholder="Password" required type="password" />
             </mat-form-field>
           </td>
         </tr>
@@ -42,7 +28,8 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="login()">Login</button>
+    <button mat-raised-button color="primary" (click)="login()" [tabIndex]="0">Login</button>
+    <span class="left-spacer"></span>
     <span>
       If you don't have an account?
       <a [routerLink]="['/auth/register']">register</a> here.

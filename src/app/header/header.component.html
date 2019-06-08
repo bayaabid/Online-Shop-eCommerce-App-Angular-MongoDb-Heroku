@@ -15,13 +15,16 @@
         <a *ngIf="!user" mat-button routerLink="/auth" routerLinkActive="active-link">Login</a>
 
         <a mat-button *ngIf="user" [matMenuTriggerFor]="menu">
-          <mat-icon>account_box</mat-icon><span>Hi</span> <span><strong> {{ user.fullname }}!</strong></span>
+          <mat-icon>account_box</mat-icon>
+          <span class="user-name">
+            <span>Hi</span> <span><strong> {{ user.fullname }}!</strong></span>
+          </span>
         </a>
         <mat-menu #menu="matMenu">
           <button (click)="logoutEvent.emit()" mat-menu-item>logout</button>
         </mat-menu>
       </div>
-      <pm-cart-item-count></pm-cart-item-count>
+      <pm-cart-item-count class="header-cart"></pm-cart-item-count>
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -30,7 +33,7 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a (click)="sidenav.toggle()" mat-list-item routerLink="/home" routerLinkActive="active-link">Home</a>
+
         <a (click)="sidenav.toggle()" mat-list-item routerLink="/products" routerLinkActive="active-link">Products</a>
 
       </mat-nav-list>
