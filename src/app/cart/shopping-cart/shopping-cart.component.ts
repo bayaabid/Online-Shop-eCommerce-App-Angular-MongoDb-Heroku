@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../core/cart/cart.service';
 import { Observable } from 'rxjs';
 import { CartItem } from '../../core/cart/cart-item';
+import {
+  cartItems,
+  cartItemsCount,
+  availableQuantities
+} from '@core/cart/cart-selectors';
 
 @Component({
   selector: 'pm-shopping-cart',
@@ -14,12 +19,12 @@ export class ShoppingCartComponent implements OnInit {
   displayedColumns = ['imgUrl', 'name', 'price', 'quantity', 'remove'];
   availableQuantities: number[];
   constructor(private cartService: CartService) {
-    this.availableQuantities = this.cartService.availableQuantities;
+    this.availableQuantities = availableQuantities();
   }
 
   ngOnInit() {
-    this.cartItems = this.cartService.cartItems;
-    this.cartItemsCount = this.cartService.cartItemsCount;
+    this.cartItems = cartItems();
+    this.cartItemsCount = cartItemsCount();
   }
 
   removeCartItem(cartItem: CartItem) {

@@ -4,6 +4,10 @@ import { Product } from '@core/products/product';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
 import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
+import {
+  availableQuantities,
+  isItemAlreadyInCart
+} from '@core/cart/cart-selectors';
 
 @Component({
   selector: 'pm-add-to-cart',
@@ -20,12 +24,10 @@ export class AddToCartComponent implements OnInit, OnDestroy {
   constructor(private cartService: CartService, private matDialog: MatDialog) {}
 
   ngOnInit() {
-    this.availableQuantities = this.cartService.availableQuantities;
+    this.availableQuantities = availableQuantities();
     this.quantity = 1;
 
-    this.isItemAlreadyInCart = this.cartService.isItemAlreadyInCart(
-      this.product.id
-    );
+    this.isItemAlreadyInCart = isItemAlreadyInCart(this.product.id);
   }
 
   addItemToCart() {

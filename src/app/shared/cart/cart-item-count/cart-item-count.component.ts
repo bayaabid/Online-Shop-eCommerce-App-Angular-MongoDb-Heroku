@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartService } from '@core/cart/cart.service';
+import { cartItemsCount } from '@core/cart/cart-selectors';
 
 @Component({
   selector: 'pm-cart-item-count',
@@ -13,6 +14,6 @@ export class CartItemCountComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartItemCount$ = this.cartService.cartItemsCount;
+    this.cartItemCount$ =  cartItemsCount();
   }
 }

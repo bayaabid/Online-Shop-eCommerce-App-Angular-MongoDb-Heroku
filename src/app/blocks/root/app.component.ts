@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import { User } from '@core/users/user';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '@core/auth/auth.service';
 
 @Component({
   selector: 'pm-root',

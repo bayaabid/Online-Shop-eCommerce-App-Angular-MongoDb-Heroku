@@ -2,9 +2,9 @@ import { ProductDataService } from '../../core/products/product-data.service';
 import {
   Component,
   OnInit,
-  OnDestroy,
+ 
   ViewChild,
-  AfterViewInit
+ 
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from '@core/products/product';

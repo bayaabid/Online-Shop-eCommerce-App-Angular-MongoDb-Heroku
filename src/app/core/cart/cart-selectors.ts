@@ -1,0 +1,47 @@
+import { cartSubject } from './cart-state';
+import { map, combineLatest, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+
+export const cartState = () => cartSubject.asObservable();
+
+export const cartItems = () => cartState().pipe(map(s => s.cartItems));
+
+export const availableQuantities = () =>
+  Array.from({ length: 30 }, (v, i) => i);
+
+export const cartItemsCount = () =>
+  cartState().pipe(map(state => state.cartItems.length));
+
+export const shippingCost = () =>
+  cartSubTotal().pipe(map(subTotal => subTotal * 0.02));
+
+export const estimattedTax = () =>
+  cartSubTotal().pipe(map(subTotal => subTotal * 0.1));
+
+export const isItemAlreadyInCart = (itemId: number) => {
+  return cartState().pipe(
+    map(state => state.cartItems.filter(item => item.id === itemId).length > 0)
+  );
+};
+
+export const cartSubTotal = () => {
+  return cartState().pipe(
+    switchMap(state => {
+      const subTotal = state.cartItems.reduce((subTotal, item) => {
+        subTotal += item.itemTotal;
+        return subTotal;
+      }, 0);
+      return of(subTotal);
+    })
+  );
+};
+
+export const orderTotal = () => {
+  return combineLatest(
+    cartSubTotal(),
+    shippingCost(),
+    estimattedTax(),
+    (cartSubTotal: number, shippingCost: number, estimattedTax: number) =>
+      cartSubTotal + shippingCost + estimattedTax
+  );
+};
