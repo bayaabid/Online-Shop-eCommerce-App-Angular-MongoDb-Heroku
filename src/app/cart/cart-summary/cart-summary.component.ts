@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CartService } from '../../core/cart/cart.service';
-import { Observable, of } from 'rxjs';
-import { cartSubTotal, cartItemsCount, shippingCost, estimattedTax, orderTotal } from '@core/cart/cart-selectors';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { Observable } from 'rxjs';
+import {
+  cartSubTotal,
+  cartItemsCount,
+  shippingCost,
+  estimattedTax,
+  orderTotal
+} from '@core/cart/cart-selectors';
+
 
 @Component({
   selector: 'pm-cart-summary',
   templateUrl: './cart-summary.component.html',
   styleUrls: ['./cart-summary.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartSummaryComponent implements OnInit {
   cartSubTotal: Observable<number>;

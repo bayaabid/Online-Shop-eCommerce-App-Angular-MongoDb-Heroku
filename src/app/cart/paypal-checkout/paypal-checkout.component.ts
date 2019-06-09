@@ -8,7 +8,7 @@ import { orderTotal } from '@core/cart/cart-selectors';
   selector: 'pm-paypal-checkout',
   templateUrl: './paypal-checkout.component.html',
   styleUrls: ['./paypal-checkout.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaypalCheckoutComponent implements OnInit {
   constructor(private cartService: CartService, private router: Router) {}
@@ -44,6 +44,7 @@ export class PaypalCheckoutComponent implements OnInit {
     onAuthorize: (data, actions) => {
       return actions.payment.execute().then(payment => {
         console.log('The payment was succeeded', payment);
+        this.cartService.clearCart();
         this.router.navigate(['products']);
       });
     },

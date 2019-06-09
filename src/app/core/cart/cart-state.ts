@@ -47,3 +47,5 @@ export const removeCartItem = (
     cartItems: newCartItems
   };
 };
+
+export const clearCart = () => initialState;

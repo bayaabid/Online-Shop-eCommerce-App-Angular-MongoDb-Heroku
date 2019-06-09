@@ -5,7 +5,8 @@ import {
   addCartItem,
   updateState,
   updateCartItem,
-  initialState
+  initialState,
+  clearCart
 } from './cart-state';
 import { LogService } from '@core/utils/logger.service';
 import { CartItem } from './cart-item';
@@ -63,5 +64,12 @@ export class CartService {
     updateState(this.state);
 
     this.logService.log('[removeCartItem] Current State', this.state);
+  }
+
+  clearCart() {
+    this.logService.log('[clearCart] Previous State', this.state);
+    this.state = clearCart();
+    updateState(this.state);
+    this.logService.log('[clearCart] Current State', this.state);
   }
 }
