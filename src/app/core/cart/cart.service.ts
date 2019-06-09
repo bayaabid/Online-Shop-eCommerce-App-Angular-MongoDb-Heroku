@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, of, combineLatest } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 import {
   CartState,
-  initialState,
   addCartItem,
-  cartSubject,
   updateState,
-  updateCartItem
+  updateCartItem,
+  initialState
 } from './cart-state';
 import { LogService } from '@core/utils/logger.service';
 import { CartItem } from './cart-item';
@@ -19,7 +17,9 @@ import { Product } from '@core/products/product';
 export class CartService {
   state: CartState;
 
-  constructor(private logService: LogService) {}
+  constructor(private logService: LogService) {
+    this.state = initialState;
+  }
 
   addToCart(product: Product, quantity: number) {
     const cartItemToAdd = {
