@@ -28,11 +28,14 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="login()" [tabIndex]="0">Login</button>
-    <span class="left-spacer"></span>
-    <span>
-      If you don't have an account?
-      <a [routerLink]="['/auth/register']">register</a> here.
-    </span>
+    <div>
+      <button style="width: 100%" mat-raised-button color="primary" (click)="login()" [tabIndex]="0">Login</button>
+    </div>
+    <div style="margin-top:2em">
+      <span>
+        New to Product Mart?
+        <a [routerLink]="['/auth/register']">Sign up</a> here.
+      </span>
+    </div>
   </mat-card-actions>
 </mat-card>
