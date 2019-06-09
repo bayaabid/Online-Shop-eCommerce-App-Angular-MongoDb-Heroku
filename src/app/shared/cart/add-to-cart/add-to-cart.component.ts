@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { CartService } from '../cart.service';
-import { Product } from '@core/models/product';
+import { CartService } from '../../../core/cart/cart.service';
+import { Product } from '@core/products/product';
 import { MatDialog } from '@angular/material';
-import { AddToCartOverlayComponent } from '../add-to-cart-overlay/add-to-cart-overlay.component';
 import { Observable } from 'rxjs';
+import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
 
 @Component({
   selector: 'pm-add-to-cart',
@@ -35,7 +35,7 @@ export class AddToCartComponent implements OnInit, OnDestroy {
   }
 
   openDialog(cartItem) {
-    this.matDialog.open(AddToCartOverlayComponent, {
+    this.matDialog.open(AddToCartDialogComponent, {
       width: '350px',
       height: '250px',
       data: { cartItem },

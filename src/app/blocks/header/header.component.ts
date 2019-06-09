@@ -5,7 +5,7 @@ import {
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { User } from 'src/app/core/user';
+import { User } from '@core/users/user';
 
 @Component({
   selector: 'pm-header',

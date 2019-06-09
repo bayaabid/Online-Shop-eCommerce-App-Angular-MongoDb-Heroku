@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LogService } from '@core/logger.service';
+import { LogService } from '@core/utils/logger.service';
 import { delay } from 'rxjs/operators';
 
 @Injectable()

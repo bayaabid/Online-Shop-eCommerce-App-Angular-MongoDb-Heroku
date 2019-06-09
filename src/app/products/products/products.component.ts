@@ -1,4 +1,4 @@
-import { ProductDataService } from '../product-data.service';
+import { ProductDataService } from '../../core/products/product-data.service';
 import {
   Component,
   OnInit,
@@ -7,9 +7,9 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Product } from '@core/models/product';
+import { Product } from '@core/products/product';
 import { MatSort } from '@angular/material/sort';
-import { LogService } from '@core/logger.service';
+import { LogService } from '@core/utils/logger.service';
 
 @Component({
   selector: 'pm-products',

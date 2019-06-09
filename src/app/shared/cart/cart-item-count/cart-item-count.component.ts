@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartService } from '../cart.service';
+import { CartService } from '@core/cart/cart.service';
 
 @Component({
   selector: 'pm-cart-item-count',

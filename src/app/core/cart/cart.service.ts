@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of, combineLatest } from 'rxjs';
-
-import { map, switchMap, withLatestFrom } from 'rxjs/operators';
-import { CartState, initialState } from './state/cart-state';
-import { Product } from '@core/models/product';
-import { LogService } from '@core/logger.service';
+import { map, switchMap } from 'rxjs/operators';
+import { CartState, initialState } from './cart-state';
+import { LogService } from '@core/utils/logger.service';
 import { CartItem } from './cart-item';
+import { Product } from '@core/products/product';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +38,7 @@ export class CartService {
     return this.cartItemsCount.pipe(map(count => (count ? 5 : 0)));
   }
 
-  isItemAlreadyInCart(itemId) {
+  isItemAlreadyInCart(itemId: number) {
     return this.cartSubject.pipe(
       map(
         state => state.cartItems.filter(item => item.id === itemId).length > 0

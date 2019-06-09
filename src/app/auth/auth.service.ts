@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { of, Subject, throwError, EMPTY, BehaviorSubject } from 'rxjs';
+import { of, throwError, EMPTY, BehaviorSubject } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-import { User } from '../core/user';
-import { TokenStorageService } from '../core/token-storage.service';
+import { User } from '../core/users/user';
+import { TokenStorageService } from '../core/auth/token-storage.service';
 
 interface UserDto {
   user: User;
