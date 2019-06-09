@@ -10,7 +10,7 @@ a {
   vertical-align: middle;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: 1em;
+  margin-right: 0.5em;
   margin-left: 1em;
 }
 
@@ -25,5 +25,8 @@ a {
 @media all and (max-width: 699px) {
   .user-name {
     display: none;
+  }
+  .logo {
+    margin-left: 4em;
   }
 }

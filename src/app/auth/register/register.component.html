@@ -47,11 +47,11 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <div class="pm-buttons">
-      <button mat-raised-button color="primary" (click)="register()">
-        Register
-      </button>
-      <span class="left-spacer"></span>
+
+    <button style="width: 100%" mat-raised-button color="primary" (click)="register()">
+      Register
+    </button>
+    <div style="margin-top:2em">
       <span>Already have a account <a [routerLink]="['/auth']">login</a> here</span>
     </div>
   </mat-card-actions>
