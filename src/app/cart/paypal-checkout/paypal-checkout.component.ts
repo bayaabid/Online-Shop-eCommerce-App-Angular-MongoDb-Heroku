@@ -2,6 +2,7 @@ declare let paypal: any;
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../core/cart/cart.service';
 import { Router } from '@angular/router';
+import { orderTotal } from '@core/cart/cart-selectors';
 
 @Component({
   selector: 'pm-paypal-checkout',
@@ -12,7 +13,7 @@ export class PaypalCheckoutComponent implements OnInit {
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
-    this.cartService.orderTotal.subscribe(total => (this.finalAmount = total));
+    orderTotal().subscribe(total => (this.finalAmount = total));
   }
   addScript: boolean = false;
   paypalLoad: boolean = true;

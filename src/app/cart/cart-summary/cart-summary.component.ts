@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../core/cart/cart.service';
 import { Observable, of } from 'rxjs';
+import { cartSubTotal, cartItemsCount, shippingCost, estimattedTax, orderTotal } from '@core/cart/cart-selectors';
 
 @Component({
   selector: 'pm-cart-summary',
@@ -16,10 +17,10 @@ export class CartSummaryComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartSubTotal = this.cartService.cartSubTotal;
-    this.cartItemsCount = this.cartService.cartItemsCount;
-    this.shippingCost = this.cartService.shippingCost;
-    this.estimattedTax = this.cartService.estimattedTax;
-    this.orderTotal = this.cartService.orderTotal;
+    this.cartSubTotal = cartSubTotal();
+    this.cartItemsCount = cartItemsCount();
+    this.shippingCost = shippingCost();
+    this.estimattedTax = estimattedTax();
+    this.orderTotal = orderTotal();
   }
 }
