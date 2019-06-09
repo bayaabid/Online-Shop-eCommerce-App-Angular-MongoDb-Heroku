@@ -31,12 +31,12 @@ export class CartService {
     };
 
     this.logService.log('[Cart] Add', cartItemToAdd);
-    this.logService.log('[addToCart] Previous State', this.state);
+    this.logService.log('Previous State:', this.state);
 
     this.state = addCartItem(this.state, cartItemToAdd);
     updateState(this.state);
 
-    this.logService.log('[addToCart] Current State', this.state);
+    this.logService.log('Current State:', this.state);
 
     return of(cartItemToAdd);
   }
@@ -48,28 +48,31 @@ export class CartService {
     };
 
     this.logService.log('[Cart] Update', cartItemToUpdate);
-    this.logService.log('[addToCart] Previous State', this.state);
+    this.logService.log('Previous State:', this.state);
 
     this.state = updateCartItem(this.state, cartItemToUpdate);
     updateState(this.state);
 
-    this.logService.log('[updateCartItem] Current State:', this.state);
+    this.logService.log('Current State:', this.state);
   }
 
   removeCartItem(itemToRemove: CartItem) {
     this.logService.log('[Cart] Remove', itemToRemove);
-    this.logService.log('[removeCartItem] Previous State', this.state);
+    this.logService.log('Previous State:', this.state);
 
     this.state = updateCartItem(this.state, itemToRemove);
     updateState(this.state);
 
-    this.logService.log('[removeCartItem] Current State', this.state);
+    this.logService.log('Current State:', this.state);
   }
 
   clearCart() {
-    this.logService.log('[clearCart] Previous State', this.state);
+    this.logService.log('[Cart] Clear', this.state);
+    this.logService.log('Previous State:', this.state);
+
     this.state = clearCart();
     updateState(this.state);
-    this.logService.log('[clearCart] Current State', this.state);
+
+    this.logService.log('Current State:', this.state);
   }
 }
