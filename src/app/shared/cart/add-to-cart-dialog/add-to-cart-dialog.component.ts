@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { CartItem } from '../../../core/cart/cart-item';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
@@ -10,7 +10,8 @@ interface AddToCartDialogData {
 @Component({
   selector: 'pm-add-to-cart-dialog',
   templateUrl: './add-to-cart-dialog.component.html',
-  styleUrls: ['./add-to-cart-dialog.component.scss']
+  styleUrls: ['./add-to-cart-dialog.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AddToCartDialogComponent implements OnInit {
   cartItem: CartItem;

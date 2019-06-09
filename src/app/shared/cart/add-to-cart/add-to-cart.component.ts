@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { CartService } from '../../../core/cart/cart.service';
 import { Product } from '@core/products/product';
 import { MatDialog } from '@angular/material';
@@ -12,7 +12,8 @@ import {
 @Component({
   selector: 'pm-add-to-cart',
   templateUrl: './add-to-cart.component.html',
-  styleUrls: ['./add-to-cart.component.scss']
+  styleUrls: ['./add-to-cart.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AddToCartComponent implements OnInit, OnDestroy {
   @Input() product: Product;

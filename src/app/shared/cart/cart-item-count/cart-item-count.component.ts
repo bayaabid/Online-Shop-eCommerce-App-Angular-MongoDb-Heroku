@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartService } from '@core/cart/cart.service';
 import { cartItemsCount } from '@core/cart/cart-selectors';
@@ -6,7 +6,8 @@ import { cartItemsCount } from '@core/cart/cart-selectors';
 @Component({
   selector: 'pm-cart-item-count',
   templateUrl: './cart-item-count.component.html',
-  styleUrls: ['./cart-item-count.component.scss']
+  styleUrls: ['./cart-item-count.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class CartItemCountComponent implements OnInit {
   cartItemCount$: Observable<number>;

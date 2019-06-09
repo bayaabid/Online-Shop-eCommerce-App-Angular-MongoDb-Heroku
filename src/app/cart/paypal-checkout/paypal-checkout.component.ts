@@ -1,5 +1,5 @@
 declare let paypal: any;
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CartService } from '../../core/cart/cart.service';
 import { Router } from '@angular/router';
 import { orderTotal } from '@core/cart/cart-selectors';
@@ -7,7 +7,8 @@ import { orderTotal } from '@core/cart/cart-selectors';
 @Component({
   selector: 'pm-paypal-checkout',
   templateUrl: './paypal-checkout.component.html',
-  styleUrls: ['./paypal-checkout.component.scss']
+  styleUrls: ['./paypal-checkout.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class PaypalCheckoutComponent implements OnInit {
   constructor(private cartService: CartService, private router: Router) {}

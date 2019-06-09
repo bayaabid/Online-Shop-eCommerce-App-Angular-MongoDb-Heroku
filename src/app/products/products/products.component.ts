@@ -4,6 +4,7 @@ import {
   OnInit,
  
   ViewChild,
+  ChangeDetectionStrategy,
  
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -14,7 +15,8 @@ import { LogService } from '@core/utils/logger.service';
 @Component({
   selector: 'pm-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent implements OnInit {
   dataSource = new MatTableDataSource<Product>();
