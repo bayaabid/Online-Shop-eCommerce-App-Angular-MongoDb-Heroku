@@ -2,7 +2,7 @@ declare let paypal: any;
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CartService } from '../../core/cart/cart.service';
 import { Router } from '@angular/router';
-import { orderTotal } from '@core/cart/cart-selectors';
+import { CartQueries } from '@core/cart/cart-queries';
 
 @Component({
   selector: 'pm-paypal-checkout',
@@ -11,10 +11,17 @@ import { orderTotal } from '@core/cart/cart-selectors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaypalCheckoutComponent implements OnInit {
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartQueries: CartQueries,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    orderTotal().subscribe(total => (this.finalAmount = total));
+    this.cartQueries.orderTotal.subscribe(total => {
+      console.log('ordertotal', total);
+      this.finalAmount = total;
+    });
   }
   addScript: boolean = false;
   paypalLoad: boolean = true;

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { CartItem } from '../../../core/cart/cart-item';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 
 interface AddToCartDialogData {
@@ -25,10 +25,10 @@ export class AddToCartDialogComponent implements OnInit {
   }
   ngOnInit() {}
   goToCart() {
-    this.router.navigate(['cart']).then(s => this.closeDialog());
+    this.router.navigate(['cart']).then(() => this.closeDialog());
   }
   continueShopping() {
-    this.router.navigate(['products']).then(s => this.closeDialog());
+    this.router.navigate(['products']).then(() => this.closeDialog());
   }
   private closeDialog() {
     this.matDialogRef.close();

@@ -1,26 +1,15 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import {
-  CartState,
-  addCartItem,
-  updateState,
-  updateCartItem,
-  initialState,
-  clearCart
-} from './cart-state';
 import { LogService } from '@core/utils/logger.service';
 import { CartItem } from './cart-item';
 import { Product } from '@core/products/product';
+import { CartStore } from './cart-store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  state: CartState;
-
-  constructor(private logService: LogService) {
-    this.state = initialState;
-  }
+  constructor(private logService: LogService, private cartStore: CartStore) {}
 
   addToCart(product: Product, quantity: number) {
     const cartItemToAdd = {
@@ -30,13 +19,7 @@ export class CartService {
       itemTotal: product.price * quantity
     };
 
-    this.logService.log('[Cart] Add', cartItemToAdd);
-    this.logService.log('Previous State:', this.state);
-
-    this.state = addCartItem(this.state, cartItemToAdd);
-    updateState(this.state);
-
-    this.logService.log('Current State:', this.state);
+    this.cartStore.addCartItem(cartItemToAdd);
 
     return of(cartItemToAdd);
   }
@@ -47,32 +30,18 @@ export class CartService {
       itemTotal: cartItemToUpdate.price * cartItemToUpdate.quantity
     };
 
-    this.logService.log('[Cart] Update', cartItemToUpdate);
-    this.logService.log('Previous State:', this.state);
+    this.cartStore.updateCartItem(cartItemToUpdate);
 
-    this.state = updateCartItem(this.state, cartItemToUpdate);
-    updateState(this.state);
-
-    this.logService.log('Current State:', this.state);
+    return of(cartItemToUpdate);
   }
 
   removeCartItem(itemToRemove: CartItem) {
-    this.logService.log('[Cart] Remove', itemToRemove);
-    this.logService.log('Previous State:', this.state);
+    this.cartStore.updateCartItem(itemToRemove);
 
-    this.state = updateCartItem(this.state, itemToRemove);
-    updateState(this.state);
-
-    this.logService.log('Current State:', this.state);
+    return of(itemToRemove);
   }
 
   clearCart() {
-    this.logService.log('[Cart] Clear', this.state);
-    this.logService.log('Previous State:', this.state);
-
-    this.state = clearCart();
-    updateState(this.state);
-
-    this.logService.log('Current State:', this.state);
+    this.cartStore.clearCart();
   }
 }

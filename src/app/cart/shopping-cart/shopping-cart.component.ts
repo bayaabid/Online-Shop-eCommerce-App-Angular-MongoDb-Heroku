@@ -2,30 +2,30 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CartService } from '../../core/cart/cart.service';
 import { Observable } from 'rxjs';
 import { CartItem } from '../../core/cart/cart-item';
-import {
-  cartItems,
-  cartItemsCount,
-  availableQuantities
-} from '@core/cart/cart-selectors';
+import { ALLOWED_QUANTITIES, CartQueries } from '@core/cart/cart-queries';
 
 @Component({
   selector: 'pm-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems: Observable<CartItem[]>;
   cartItemsCount: Observable<number>;
   displayedColumns = ['imgUrl', 'name', 'price', 'quantity', 'remove'];
   availableQuantities: number[];
-  constructor(private cartService: CartService) {
-    this.availableQuantities = availableQuantities();
+
+  constructor(
+    private cartService: CartService,
+    private cartQueries: CartQueries
+  ) {
+    this.availableQuantities = ALLOWED_QUANTITIES;
   }
 
   ngOnInit() {
-    this.cartItems = cartItems();
-    this.cartItemsCount = cartItemsCount();
+    this.cartItems = this.cartQueries.cartItems;
+    this.cartItemsCount = this.cartQueries.cartItemsCount;
   }
 
   removeCartItem(cartItem: CartItem) {

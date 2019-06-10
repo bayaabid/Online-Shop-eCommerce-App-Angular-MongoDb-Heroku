@@ -1,19 +1,22 @@
-import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnDestroy,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { CartService } from '../../../core/cart/cart.service';
 import { Product } from '@core/products/product';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
 import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
-import {
-  availableQuantities,
-  isItemAlreadyInCart
-} from '@core/cart/cart-selectors';
+import { ALLOWED_QUANTITIES, CartQueries } from '@core/cart/cart-queries';
 
 @Component({
   selector: 'pm-add-to-cart',
   templateUrl: './add-to-cart.component.html',
   styleUrls: ['./add-to-cart.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddToCartComponent implements OnInit, OnDestroy {
   @Input() product: Product;
@@ -22,13 +25,19 @@ export class AddToCartComponent implements OnInit, OnDestroy {
 
   isItemAlreadyInCart: Observable<boolean>;
 
-  constructor(private cartService: CartService, private matDialog: MatDialog) {}
+  constructor(
+    private cartQueries: CartQueries,
+    private cartService: CartService,
+    private matDialog: MatDialog
+  ) {}
 
   ngOnInit() {
-    this.availableQuantities = availableQuantities();
+    this.availableQuantities = ALLOWED_QUANTITIES;
     this.quantity = 1;
 
-    this.isItemAlreadyInCart = isItemAlreadyInCart(this.product.id);
+    this.isItemAlreadyInCart = this.cartQueries.isItemAlreadyInCart(
+      this.product.id
+    );
   }
 
   addItemToCart() {

@@ -1,14 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { CartService } from '../../core/cart/cart.service';
 import { Observable } from 'rxjs';
-import {
-  cartSubTotal,
-  cartItemsCount,
-  shippingCost,
-  estimattedTax,
-  orderTotal
-} from '@core/cart/cart-selectors';
-
+import { CartQueries } from '@core/cart/cart-queries';
 
 @Component({
   selector: 'pm-cart-summary',
@@ -22,13 +14,13 @@ export class CartSummaryComponent implements OnInit {
   shippingCost: Observable<number>;
   estimattedTax: Observable<number>;
   orderTotal: Observable<number>;
-  constructor(private cartService: CartService) {}
+  constructor(private cartQueries: CartQueries) {}
 
   ngOnInit() {
-    this.cartSubTotal = cartSubTotal();
-    this.cartItemsCount = cartItemsCount();
-    this.shippingCost = shippingCost();
-    this.estimattedTax = estimattedTax();
-    this.orderTotal = orderTotal();
+    this.cartSubTotal = this.cartQueries.cartSubTotal;
+    this.cartItemsCount = this.cartQueries.cartItemsCount;
+    this.shippingCost = this.cartQueries.shippingCost;
+    this.estimattedTax = this.cartQueries.estimattedTax;
+    this.orderTotal = this.cartQueries.orderTotal;
   }
 }
