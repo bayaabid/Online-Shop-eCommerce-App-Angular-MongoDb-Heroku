@@ -44,7 +44,7 @@
         <ng-container matColumnDef="quantity">
           <th mat-header-cell *matHeaderCellDef> Quantity </th>
           <td mat-cell *matCellDef="let cartItem">
-            <mat-select name="quantity" [(value)]="cartItem.quantity" (selectionChange)="updateCartItem(cartItem)">
+            <mat-select name="quantity" [value]="cartItem.quantity" (selectionChange)="updateCartItem($event,cartItem)">
               <mat-option *ngFor="let quantity of availableQuantities" [value]="quantity"> {{quantity}}</mat-option>
             </mat-select>
           </td>

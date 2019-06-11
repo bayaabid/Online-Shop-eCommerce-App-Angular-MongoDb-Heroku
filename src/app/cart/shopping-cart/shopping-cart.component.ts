@@ -12,6 +12,7 @@ import { ALLOWED_QUANTITIES, CartQueries } from '@core/cart/cart-queries';
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems: Observable<CartItem[]>;
+
   cartItemsCount: Observable<number>;
   displayedColumns = ['imgUrl', 'name', 'price', 'quantity', 'remove'];
   availableQuantities: number[];
@@ -32,7 +33,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cartService.removeCartItem(cartItem);
   }
 
-  updateCartItem(cartItem: CartItem) {
-    this.cartService.updateCartItem(cartItem);
+  updateCartItem(event: { value: number }, cartItem: CartItem) {
+    this.cartService.updateCartItem({ ...cartItem, quantity: event.value });
   }
 }
