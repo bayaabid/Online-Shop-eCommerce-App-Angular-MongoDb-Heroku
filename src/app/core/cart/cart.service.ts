@@ -36,7 +36,7 @@ export class CartService {
   }
 
   removeCartItem(itemToRemove: CartItem) {
-    this.cartStore.updateCartItem(itemToRemove);
+    this.cartStore.removeCartItem(itemToRemove);
 
     return of(itemToRemove);
   }
