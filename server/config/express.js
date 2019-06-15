@@ -8,6 +8,7 @@ const helmet = require("helmet");
 const routes = require("../routes");
 const passport = require("../middleware/passport");
 const compress = require("compression");
+const httpError = require('http-errors');
 
 // get app
 const app = express();
@@ -44,5 +45,19 @@ app.use("/api/", routes);
 
 // serve the index.html
 app.get("*", (req, res) => res.sendFile(path.join(distDir, "index.html")));
+
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new httpError(404)
+  return next(err);
+});
+
+// error handler, send stacktrace 
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).json({
+    message: err.message
+  });
+  next(err);
+});
 
 module.exports = app;

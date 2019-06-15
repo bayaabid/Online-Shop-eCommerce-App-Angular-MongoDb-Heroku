@@ -20,8 +20,8 @@
           </td>
         </tr>
         <tr>
-          <td>
-            <mat-error *ngIf="error">{{ error }}</mat-error>
+          <td colspan="2">
+            <mat-error *ngIf="error|async">{{ error|async }}</mat-error>
           </td>
         </tr>
       </table>

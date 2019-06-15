@@ -48,6 +48,16 @@
       "type": "npm",
       "script": "serve:client",
       "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "client",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "start:server",
+      "problemMatcher": []
     }
   ]
 }
