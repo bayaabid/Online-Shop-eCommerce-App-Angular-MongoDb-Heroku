@@ -4,14 +4,15 @@ a {
 }
 
 .logo {
-  background-image: url('../../../assets/logo.png');
+  background-image: url("../../../assets/logo.png");
   height: 50px;
   width: 50px;
   vertical-align: middle;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: 0.5em;
-  margin-left: 1em;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 0.2em;
 }
 
 .header-spacer {
