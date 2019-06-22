@@ -36,6 +36,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[3,6,9]" showFirstLastButtons></mat-paginator>
   </mat-card-content>
 </mat-card>
 <mat-spinner color="primary" *ngIf="loading"></mat-spinner>

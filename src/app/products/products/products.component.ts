@@ -1,29 +1,29 @@
-import { ProductDataService } from '../../core/products/product-data.service';
+import { ProductDataService } from "../../core/products/product-data.service";
 import {
   Component,
   OnInit,
- 
   ViewChild,
-  ChangeDetectionStrategy,
- 
-} from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Product } from '@core/products/product';
-import { MatSort } from '@angular/material/sort';
-import { LogService } from '@core/utils/logger.service';
+  ChangeDetectionStrategy
+} from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
+import { Product } from "@core/products/product";
+import { MatSort } from "@angular/material/sort";
+import { LogService } from "@core/utils/logger.service";
+import { MatPaginator } from '@angular/material/paginator/typings/paginator';
 
 @Component({
-  selector: 'pm-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  selector: "pm-products",
+  templateUrl: "./products.component.html",
+  styleUrls: ["./products.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent implements OnInit {
   dataSource = new MatTableDataSource<Product>();
   loading = true;
   subscriptions = [];
-  displayedColumns = ['imgUrl', 'name', 'price', 'addToCart'];
+  displayedColumns = ["imgUrl", "name", "price", "addToCart"];
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private productDataService: ProductDataService,
@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.subscriptions.push(
       this.productDataService.getAllProducts().subscribe(products => {
-        this.logService.log('products loaded', products);
+        this.logService.log("products loaded", products);
         this.onDataLoad(products);
       })
     );
@@ -51,5 +51,6 @@ export class ProductsComponent implements OnInit {
     this.loading = false;
     this.dataSource.sort = this.sort;
     this.dataSource.data = products;
+    this.dataSource.paginator = this.paginator;
   }
 }
