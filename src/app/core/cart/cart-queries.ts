@@ -32,7 +32,11 @@ export class CartQueries {
       )
     );
   }
-
+  isItemAlreadyInCart(itemId: number) {
+    return this.cartItems.pipe(
+      map(items => items.filter(item => item.id === itemId).length > 0)
+    );
+  }
   get cartSubTotal() {
     return this.cartItems.pipe(
       map(items =>
@@ -55,12 +59,6 @@ export class CartQueries {
     return this.cartSubTotal.pipe(
       distinctUntilChanged(),
       map(subTotal => subTotal * TAX)
-    );
-  }
-
-  isItemAlreadyInCart(itemId: number) {
-    return this.cartItems.pipe(
-      map(items => items.filter(item => item.id === itemId).length > 0)
     );
   }
 
